@@ -14,14 +14,17 @@ class categoryViewController: UIViewController {
    
     @IBOutlet weak var Setcategory: UITextField!
     
+    var backedView:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapGesture)
         // Do any additional setup after loading the view.
+       
     }
-        
-    
+   
     @IBAction func Addcategorybutton(_ sender: Any) {
         
         let category = Category()
@@ -34,7 +37,19 @@ class categoryViewController: UIViewController {
         let results = realm.objects(Category.self)
         print(results)
         
+        if backedView == false {
+            self.navigationController?.popViewController(animated: true)
+            
+        }else {
+            dismissKeyboard()
+        }
     }
+    
+    @objc func dismissKeyboard(){
+               // キーボードを閉じる
+               view.endEditing(true)
+           }
+    
     @objc func Add(){
         
     }

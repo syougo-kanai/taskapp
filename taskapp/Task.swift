@@ -22,6 +22,8 @@ class Task: Object {
     //日時
     @Persisted var date = Date()
     
+    @Persisted var adddate = Date()
+    
     @Persisted var type:Category?
     
 }
@@ -30,6 +32,8 @@ class Category: Object{
     @Persisted(primaryKey: true) var iD: ObjectId
     
     @Persisted var categorydata = ""
+    
+    
     }
 
 

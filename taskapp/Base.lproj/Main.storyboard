@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Wgh-ff-dcw">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="172" width="393" height="646"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="ver-mB-xtJ">
@@ -31,17 +31,55 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M3M-bD-nBB">
+                                <rect key="frame" x="16" y="122" width="227" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZrQ-EV-NFv">
+                                <rect key="frame" x="318" y="121" width="59" height="35"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="削除"/>
+                                <connections>
+                                    <action selector="sortcancelButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MVC-CW-xhj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bY-Gy-USy">
+                                <rect key="frame" x="251" y="121" width="59" height="35"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="検索"/>
+                                <connections>
+                                    <action selector="sortButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cca-Gz-4kd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Wgh-ff-dcw" firstAttribute="top" secondItem="M3M-bD-nBB" secondAttribute="bottom" constant="16" id="E0j-j2-6ZJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wgh-ff-dcw" secondAttribute="trailing" id="FfB-Df-FAm"/>
-                            <constraint firstItem="Wgh-ff-dcw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Sru-1v-WkP"/>
+                            <constraint firstItem="M3M-bD-nBB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Fxt-4c-IXt"/>
+                            <constraint firstItem="ZrQ-EV-NFv" firstAttribute="leading" secondItem="8bY-Gy-USy" secondAttribute="trailing" constant="8" id="Nuh-qN-9Nd"/>
+                            <constraint firstItem="M3M-bD-nBB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="19" id="YPy-vh-bjQ"/>
+                            <constraint firstItem="ZrQ-EV-NFv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="18" id="ayR-q3-uWI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZrQ-EV-NFv" secondAttribute="trailing" constant="16" id="gb3-4f-9tm"/>
+                            <constraint firstItem="Wgh-ff-dcw" firstAttribute="top" secondItem="ZrQ-EV-NFv" secondAttribute="bottom" constant="16" id="mKc-5l-i6y"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Wgh-ff-dcw" secondAttribute="bottom" id="rlw-fl-c9k"/>
+                            <constraint firstItem="8bY-Gy-USy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="18" id="tBO-Rq-q6d"/>
                             <constraint firstItem="Wgh-ff-dcw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xcg-70-eiw"/>
+                            <constraint firstItem="8bY-Gy-USy" firstAttribute="leading" secondItem="M3M-bD-nBB" secondAttribute="trailing" constant="8" id="xgL-fh-76f"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8zZ-1A-ARi">
+                        <barButtonItem key="leftBarButtonItem" title="updown" image="arrow.up.arrow.down.circle" catalog="system" id="kEQ-Ak-lFH">
+                            <connections>
+                                <action selector="updown:" destination="BYZ-38-t0r" id="msY-IA-fIg"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="cAb-Uc-aWm">
                                 <connections>
@@ -57,7 +95,9 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="sortPulldown" destination="M3M-bD-nBB" id="ChX-Qh-dMm"/>
                         <outlet property="tableView" destination="Wgh-ff-dcw" id="Vg1-2F-aRZ"/>
+                        <outlet property="updownButton" destination="kEQ-Ak-lFH" id="KzI-ok-CBC"/>
                         <segue destination="TCr-bP-ECh" kind="show" identifier="cellSegue" id="szK-hP-ZKq"/>
                     </connections>
                 </viewController>
@@ -96,7 +136,7 @@
                                 <buttonConfiguration key="configuration" style="plain" image="plus.rectangle.on.folder" catalog="system"/>
                                 <connections>
                                     <action selector="addcategory:" destination="TCr-bP-ECh" eventType="touchUpInside" id="g3p-GQ-8m7"/>
-                                    <segue destination="ZfM-HF-8YZ" kind="show" id="W8B-Ae-bGQ"/>
+                                    <segue destination="ZfM-HF-8YZ" kind="show" id="rsI-Aw-dbj"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDc-1O-v6w">
@@ -266,6 +306,7 @@
         <segue reference="szK-hP-ZKq"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="arrow.up.arrow.down.circle" catalog="system" width="128" height="123"/>
         <image name="plus.rectangle.on.folder" catalog="system" width="128" height="95"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -273,8 +314,14 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemMintColor">
             <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
