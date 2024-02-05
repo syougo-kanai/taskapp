@@ -104,7 +104,7 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         if updataTask == true{
             categoryPickerfeild.text = task.type?.categorydata
         }else{
-            categoryPickerfeild.text = "未設定"}
+            categoryPickerfeild.text = list[0]}
       
         // Do any additional setup after loading the view.
     }

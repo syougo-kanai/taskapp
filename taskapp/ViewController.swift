@@ -28,13 +28,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var sortPulldown: UITextField!
     @IBAction func sortButton(_ sender: Any) {
-
-        let sortArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true).filter("type.categorydata == %@",isPicker)
-        self.taskArray = sortArray
-        print(sortArray)
+        if sortPulldown.text != ""{
+            let sortArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true).filter("type.categorydata == %@",isPicker)
+            self.taskArray = sortArray
+            print(sortArray)
+        }else{
+            let sortArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
+             self.taskArray = sortArray
+        }
         sorttask = true
         tableView.reloadData()
-       dismissKeyboard()
+        dismissKeyboard()
     }
     @IBAction func sortcancelButton(_ sender: Any) {
        let sortArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: true)
@@ -48,6 +52,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var updownButton: UIBarButtonItem!
     
+    //登録した日付順　0:task完了日、1:昇順、2:降順
     @IBAction func updown(_ sender: Any) {
         
         if taskorder == 0{
@@ -133,6 +138,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
            //   print(filteredItems)
               sortPulldown.reloadInputViews()
             dismissKeyboard()
+            self.taskorder = 0
                     }
     
     override func viewDidLoad() {
